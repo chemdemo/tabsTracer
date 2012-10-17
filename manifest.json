@@ -1,0 +1,13 @@
+{
+	"name": "tab recorder",
+	"version": "1.0",
+	"description": "record the tabs opened from chrome, and open them on chrome open again.",
+	"browser_action": {
+		"default_icon": "icon.png"
+	},
+	"icon": {
+		"48": "48.png"
+	}
+	"background_page": "background.html",
+	"permissions": ["tabs"]
+}
