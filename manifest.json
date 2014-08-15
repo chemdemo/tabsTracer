@@ -1,13 +1,15 @@
 {
-	"name": "tabsRecorder",
-	"version": "1.0",
-	"description": "record the tabs opened from chrome, and open them on chrome open again.",
-	"browser_action": {
-		"default_icon": "icon.png"
-	},
-	"icons": {
-		"48": "48.png"
-	},
-	"background_page": "background.html",
-	"permissions": ["tabs"]
+    "name": "tabsTracer",
+    "version": "0.1.0",
+    "manifest_version": 2,
+    "description": "Intelligent tracking opened tabs in chrome.",
+    "browser_action": {
+        "default_icon": "img/icon.png"
+    },
+    "icons": {
+        "48": "img/48.png"
+    },
+    "background_page": "background.html",
+    "permissions": ["tabs", "http://*/*", "https://*/*"],
+    "default_popup": "popup.html"
 }

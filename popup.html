@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>tabs tracer</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+</head>
+<body>
+    <div class="box">
+        <header>All tabs</header>
+        <section>
+            <ul id="urls">
+                <li>
+                    <input value="http://addyosmani.github.io/backbone-fundamentals/#backbones-sync-api" />
+                    <a href="##" class="fr icon-trash"></a>
+                    <a href="##" class="fr icon-hyperlink"></a>
+                </li>
+                <li>
+                    <input value="http://addyosmani.github.io/backbone-fundamentals/#backbones-sync-api" />
+                    <a href="##" class="fr icon-trash"></a>
+                    <a href="##" class="fr icon-hyperlink"></a>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <script type="text/tmpl" id="tmpl-tab">
+        <input value="<%= url %>" />
+        <a href="javascript: void(0);" class="fr icon-trash"></a>
+        <a href="javascript: void(0);" class="fr icon-hyperlink"></a>
+    </script>
+</body>
+</html>
