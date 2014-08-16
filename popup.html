@@ -6,11 +6,11 @@
     <link rel="stylesheet" type="text/css" href="css/main.css" />
 </head>
 <body>
-    <div class="box">
+    <div class="hide box" id="box">
         <header>All tabs</header>
         <section>
             <ul id="urls">
-                <li>
+                <!-- <li>
                     <input value="http://addyosmani.github.io/backbone-fundamentals/#backbones-sync-api" />
                     <a href="##" class="fr icon-trash"></a>
                     <a href="##" class="fr icon-hyperlink"></a>
@@ -19,7 +19,7 @@
                     <input value="http://addyosmani.github.io/backbone-fundamentals/#backbones-sync-api" />
                     <a href="##" class="fr icon-trash"></a>
                     <a href="##" class="fr icon-hyperlink"></a>
-                </li>
+                </li> -->
             </ul>
         </section>
     </div>
@@ -28,6 +28,24 @@
         <input value="<%= url %>" />
         <a href="javascript: void(0);" class="fr icon-trash"></a>
         <a href="javascript: void(0);" class="fr icon-hyperlink"></a>
+    </script>
+
+    <script src="js/lib/jquery-min.js"></script>
+    <script src="js/lib/underscore-min.js"></script>
+    <script src="js/lib/backbone.js"></script>
+    <script src="js/lib/backbone.localStorage.js"></script>
+    <script src="js/tabModel.js"></script>
+    <script src="js/tabsCollection.js"></script>
+    <script src="js/tabView.js"></script>
+    <script src="js/appView.js"></script>
+    <script src="js/appRouter.js"></script>
+    <script>
+    ;(function() {
+        document.addEventListener('DOMContentLoaded', function startApp() {
+            var router = new AppRouter();
+            router.navigate('index', {trigger: true});
+        });
+    }());
     </script>
 </body>
 </html>

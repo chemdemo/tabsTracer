@@ -22,7 +22,7 @@
             'click .icon-trash': 'remove'
         },
         initialize: function() {
-            this.tmpl = _.template(document.querySelector('#tmpl-tab').innerHTML);
+            this.tmpl = _.template($('#tmpl-tab').html());
             // this.listenTo(this.model, 'change', this.render);
             this.listenTo(this.model, 'destroy', this.remove);
         },
@@ -30,6 +30,7 @@
             this.model.save({url: url});
         },
         render: function() {
+            // this.el.innerHTML = this.tmpl(this.model.toJSON());
             this.$el.html(this.tmpl(this.model.toJSON()));
             return this;
         },
@@ -43,6 +44,7 @@
             this.stopListening();
             this.undelegateEvents();
             this.$el.remove();
+            // this.el.parentNode.removeChild(this.el);
         }
     });
 

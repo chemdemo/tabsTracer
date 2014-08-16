@@ -47,6 +47,10 @@ ul, li {
     float: right;
 }
 
+.hide {
+    visibility: none;
+}
+
 .box {
     width: 500px;
 }

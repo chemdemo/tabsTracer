@@ -15,15 +15,16 @@
    }
 }(this, function(_, Backbone, TabView) {
     var AppView = Backbone.View.extend({
-        el: document.querySelectorAll('section')[0],
         events: {},
         initialize: function() {
             this.urlsBox = document.querySelector('#urls');
 
             chrome.tabs.onCreated.addListener(this.createATab);
             chrome.tabs.onRemoved.addListener(this.removeATab);
+            chrome.windows.getCurrent({populate: true}, this.filterCurr);
 
             this.listenTo(this.collection, 'add', this.addOne);
+            this.listenTo(this.collection, 'reset', this.addAll);
             this.listenTo(this.collection, 'remove', this.removeOne);
 
             this.collection.fetch();
@@ -44,6 +45,9 @@
         },
         removeATab: function(tabId, info) {
             if(info.sWindowClosing) this.collection.remove({tabId: tabId});
+        },
+        filterCurr: function(win) {
+            _.each(win.tabs, this.createATab);
         }
     });
 
