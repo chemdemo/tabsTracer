@@ -30,7 +30,8 @@
             this.model.save({url: url});
         },
         render: function() {
-            // this.el.innerHTML = this.tmpl(this.model.toJSON());
+            // backbone hard dependency on jQuery!!!
+            // https://github.com/jashkenas/backbone/wiki/Using-Backbone-without-jQuery
             this.$el.html(this.tmpl(this.model.toJSON()));
             return this;
         },
