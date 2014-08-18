@@ -1,15 +1,18 @@
 {
     "name": "tabsTracer",
-    "version": "0.1.0",
+    "version": "1.1.0",
     "manifest_version": 2,
     "description": "Intelligent tracking opened tabs in chrome.",
     "browser_action": {
-        "default_icon": "img/icon.png"
+        "default_icon": "img/icon.png",
+        "default_title": "Show tabs saved in localStorage",
+        "default_popup": "popup.html"
     },
     "icons": {
         "48": "img/48.png"
     },
-    "background_page": "background.html",
-    "permissions": ["tabs", "http://*/*", "https://*/*"],
-    "default_popup": "popup.html"
+    "background": {
+        "scripts": "js/background.js"
+    },
+    "permissions": ["tabs", "http://*/*", "https://*/*"]
 }
