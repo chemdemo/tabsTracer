@@ -26,8 +26,8 @@
             // this.listenTo(this.model, 'change', this.render);
             // this.listenTo(this.model, 'destroy', this.remove);
         },
-        updateTab: function(url) {
-            this.model.save({url: url});
+        updateTab: function(e) {
+            this.model.updateUrl(e.target.value);
         },
         render: function() {
             // backbone hard dependency on jQuery!!!
@@ -35,16 +35,14 @@
             this.$el.html(_.template(this.tabTmpl, this.model.toJSON()));
             return this;
         },
-        openUrl: function() {
+        openUrl: function(e) {
             chrome.tabs.create({
                 url: this.model.get('url'),
                 selected: true
             });
         },
-        remove: function() {
-            if(confirm('Delete from local storage?')) {
-                this.model.destroy();
-            }
+        remove: function(e) {
+            if(confirm('Delete from local storage?')) this.model.destroy();
             this.stopListening();
             this.undelegateEvents();
             this.$el.remove();
