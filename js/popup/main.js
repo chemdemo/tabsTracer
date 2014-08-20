@@ -1,5 +1,14 @@
-$(function init() {
-    var router = new AppRouter();
+/**
+ * @Desc: popup.html start
+ */
 
-    router.navigate('index', {trigger: true});
-});
+;(function(root) {
+    function startApp() {
+        var router = new AppRouter();
+
+        router.navigate('index', {trigger: true});
+    };
+
+    // $(startApp);
+    window.addEventListener('load', startApp);
+}(this));

@@ -22,7 +22,7 @@
             'click .icon-trash': 'remove'
         },
         initialize: function() {
-            this.tabTmpl = $('#tmpl-tab').html();
+            this.tabTmpl = document.querySelector('#tmpl-tab').innerHTML;
             // this.listenTo(this.model, 'change', this.render);
             // this.listenTo(this.model, 'destroy', this.remove);
         },
@@ -32,7 +32,8 @@
         render: function() {
             // backbone hard dependency on jQuery!!!
             // https://github.com/jashkenas/backbone/wiki/Using-Backbone-without-jQuery
-            this.$el.html(_.template(this.tabTmpl, this.model.toJSON()));
+            // this.$el.html(_.template(this.tabTmpl, this.model.toJSON()));
+            this.el.innerHTML = _.template(this.tabTmpl, this.model.toJSON());
             return this;
         },
         openUrl: function(e) {
@@ -45,7 +46,8 @@
             if(confirm('Delete from local storage?')) this.model.destroy();
             this.stopListening();
             this.undelegateEvents();
-            this.$el.remove();
+            // this.$el.remove();
+            this.el.parentNode.removeChild(this.el);
         }
     });
 
