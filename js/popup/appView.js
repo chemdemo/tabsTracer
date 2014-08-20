@@ -25,10 +25,7 @@
             this.listenTo(this.collection, 'reset', this.addAll);
             // this.listenTo(this.collection, 'remove', this.removeOne);
 
-            var self = this;
-            this.collection.each(function(tab) {
-                self.addOne(tab);
-            });
+            this.addAll();
         },
 
         addOne: function(tab) {
@@ -42,7 +39,7 @@
         },
 
         addAll: function() {
-            this.collection.each(this.addOne);
+            this.collection.each(this.addOne, this);
         },
 
         removeOne: function(tab) {
