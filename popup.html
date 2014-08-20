@@ -4,48 +4,23 @@
     <meta charset="utf-8" />
     <title>tabs tracer</title>
     <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <script src="js/popup/jsBridge.js"></script>
 </head>
 <body>
-    <div class="hide box" id="box">
-        <header>All tabs</header>
-        <section>
-            <ul id="urls">
-                <!-- <li>
-                    <input value="http://addyosmani.github.io/backbone-fundamentals/#backbones-sync-api" />
-                    <a href="##" class="fr icon-trash"></a>
-                    <a href="##" class="fr icon-hyperlink"></a>
-                </li>
-                <li>
-                    <input value="http://addyosmani.github.io/backbone-fundamentals/#backbones-sync-api" />
-                    <a href="##" class="fr icon-trash"></a>
-                    <a href="##" class="fr icon-hyperlink"></a>
-                </li> -->
-            </ul>
-        </section>
+    <div class="box" id="box">
+        <header>Urls stored</header>
+        <section><ul id="urls"></ul></section>
     </div>
 
-    <script type="text/tmpl" id="tmpl-tab">
+    <script type="text/template" id="tmpl-tab">
         <input value="<%= url %>" />
-        <a href="javascript: void(0);" class="fr icon-trash"></a>
-        <a href="javascript: void(0);" class="fr icon-hyperlink"></a>
-    </script>
-
-    <script src="js/lib/jquery-min.js"></script>
-    <script src="js/lib/underscore-min.js"></script>
-    <script src="js/lib/backbone.js"></script>
-    <script src="js/lib/backbone.localStorage.js"></script>
-    <script src="js/tabModel.js"></script>
-    <script src="js/tabsCollection.js"></script>
-    <script src="js/tabView.js"></script>
-    <script src="js/appView.js"></script>
-    <script src="js/appRouter.js"></script>
-    <script>
-    ;(function() {
-        document.addEventListener('DOMContentLoaded', function startApp() {
-            var router = new AppRouter();
-            router.navigate('index', {trigger: true});
-        });
-    }());
+        <a href="javascript: void(0);" data-tab-id="id" title="delete" class="fr icon-trash"></a>
+        <a href="javascript: void(0);" data-tab-id="id" title="open" class="fr icon-hyperlink"></a>
     </script>
 </body>
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/popup/tabView.js"></script>
+<script src="js/popup/appView.js"></script>
+<script src="js/popup/appRouter.js"></script>
+<script src="js/popup/main.js"></script>
 </html>

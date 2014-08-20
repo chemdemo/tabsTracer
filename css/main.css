@@ -53,14 +53,16 @@ ul, li {
 
 .box {
     width: 500px;
+    max-height: 700px;
 }
 
 header {
-    height: 30px;
-    line-height: 30px;
+    height: 35px;
+    line-height: 35px;
     background-color: #000;
     text-align: center;
     color: #FFF;
+    font-size: 20px;
 }
 
 button {
