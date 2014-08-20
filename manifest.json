@@ -12,7 +12,17 @@
         "48": "img/48.png"
     },
     "background": {
-        "scripts": "js/background.js"
+        "scripts": [
+            "js/lib/jquery.min.js",
+            "js/lib/underscore.min.js",
+            "js/lib/backbone.js",
+            "js/lib/backbone.localstorage.js",
+            "js/background/tabModel.js",
+            "js/background/tabsCollection.js",
+            "js/background/tabController.js",
+            "js/background/main.js"
+        ]
     },
-    "permissions": ["tabs", "http://*/*", "https://*/*"]
+    "permissions": ["tabs", "http://*/*", "https://*/*"],
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
