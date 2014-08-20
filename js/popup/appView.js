@@ -23,7 +23,7 @@
 
             this.listenTo(this.collection, 'add', this.addOne);
             this.listenTo(this.collection, 'reset', this.addAll);
-            this.listenTo(this.collection, 'remove', this.removeOne);
+            // this.listenTo(this.collection, 'remove', this.removeOne);
 
             var self = this;
             this.collection.each(function(tab) {

@@ -24,7 +24,7 @@
         initialize: function() {
             this.tabTmpl = $('#tmpl-tab').html();
             // this.listenTo(this.model, 'change', this.render);
-            this.listenTo(this.model, 'destroy', this.remove);
+            // this.listenTo(this.model, 'destroy', this.remove);
         },
         updateTab: function(url) {
             this.model.save({url: url});
@@ -43,7 +43,7 @@
         },
         remove: function() {
             if(confirm('Delete from local storage?')) {
-                bgContext.tabCollection.removeById($(this).data('tabId') - 0);
+                this.model.destroy();
             }
             this.stopListening();
             this.undelegateEvents();
