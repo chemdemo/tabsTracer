@@ -63,7 +63,7 @@
 
             if( !u ||
                 (u &&
-                u.match(/^chrome(?:\.+)?:\/\//) ||
+                u.match(/^chrome.*:\/\//) ||
                 u.match(/^http(?:|s):\/\/www\.(google|baidu|yahoo)\.com/) ||
                 u.match(/^file:\/\//)
                 )
