@@ -3,8 +3,8 @@ html, body, h1, h2, h3, h4, h5, h6, p, ul, li, input, button, textarea, section 
     padding: 0;
 }
 
-body {
-    font: 13px/1.5 'Microsoft Yahei', Arial;
+body, input, button {
+    font: 13px/1.5 Console, 'Microsoft Yahei', Arial;
 }
 
 ul, li {
@@ -13,11 +13,11 @@ ul, li {
 
 @font-face {
     font-family: 'icomoon';
-    src:url('fonts/icomoon.eot?-hz7a32');
-    src:url('fonts/icomoon.eot?#iefix-hz7a32') format('embedded-opentype'),
-        url('fonts/icomoon.woff?-hz7a32') format('woff'),
-        url('fonts/icomoon.ttf?-hz7a32') format('truetype'),
-        url('fonts/icomoon.svg?-hz7a32#icomoon') format('svg');
+    src:url('fonts/icomoon.eot?-8f5vlv');
+    src:url('fonts/icomoon.eot?#iefix-8f5vlv') format('embedded-opentype'),
+        url('fonts/icomoon.woff?-8f5vlv') format('woff'),
+        url('fonts/icomoon.ttf?-8f5vlv') format('truetype'),
+        url('fonts/icomoon.svg?-8f5vlv#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -36,11 +36,20 @@ ul, li {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-close:before {
+    content: "\e602";
+}
 .icon-hyperlink:before {
     content: "\e600";
 }
-.icon-trash:before {
+.icon-plus:before {
     content: "\e601";
+}
+.icon-list:before {
+    content: "\e605";
+}
+.icon-list2:before {
+    content: "\e606";
 }
 
 .fr {
@@ -51,9 +60,14 @@ ul, li {
     visibility: none;
 }
 
-.box {
+.none {
+    display: none;
+}
+
+.url-list {
     width: 500px;
-    max-height: 700px;
+    max-height: 777px;
+    position: relative;
 }
 
 header {
@@ -63,11 +77,24 @@ header {
     text-align: center;
     color: #FFF;
     font-size: 20px;
+    position: relative;
 }
 
-button {
-    border: none;
+.show-re {
+    position: absolute;
+    top: 10px;
+    right: 8px;
     background-color: transparent;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.show-re:hover {
+    color: #CCC;
+}
+
+.show-re:active {
+    color: #8A8A8A;
 }
 
 section ul li {
@@ -106,4 +133,47 @@ li a:hover {
 
 a.icon-hyperlink {
     margin-right: 12px;
+}
+
+.exclude-list {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    width: 450px;
+    margin-left: -225px;
+    box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.7);
+    background-color: #FFF;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.exclude-list h3 {
+    background-color: #D5D5D5;
+    padding: 5px;
+}
+
+.exclude-list .add-re {
+    margin: 4px 11px;
+    cursor: pointer;
+}
+
+.exclude-list .add-re:hover {
+    color: #333;
+}
+
+.exclude-list .add-re:active {
+    color: #868686;
+}
+
+.exclude-list input {
+    width: 400px;
+}
+
+.exclude-list input:focus {
+    outline: 1px solid #D60045;
+    background-color: rgb(252, 223, 231);
+}
+
+.exclude-list li:nth-child(2n) {
+    background-color: #E7E7E7;
 }
