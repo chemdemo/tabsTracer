@@ -104,7 +104,7 @@ section ul li {
 }
 
 section ul li:nth-child(2n) {
-    background-color: #E7E7E7;
+    background-color: #E8FCFF;
 }
 
 li input {
@@ -148,7 +148,8 @@ a.icon-hyperlink {
 }
 
 .exclude-list h3 {
-    background-color: #D5D5D5;
+    background-color: #911C1C;
+    color: #FFF;
     padding: 5px;
 }
 
@@ -175,5 +176,5 @@ a.icon-hyperlink {
 }
 
 .exclude-list li:nth-child(2n) {
-    background-color: #E7E7E7;
+    background-color: #FFE8EE;
 }
