@@ -18,7 +18,9 @@
             "js/lib/backbone.js",
             "js/lib/backbone.localstorage.js",
             "js/background/tabModel.js",
+            "js/background/reModel.js",
             "js/background/tabsCollection.js",
+            "js/background/reCollection.js",
             "js/background/tabController.js",
             "js/background/main.js"
         ]
