@@ -120,18 +120,18 @@ li input:focus {
     background-color: #DAF6FD;
 }
 
-li a {
+li i {
     text-decoration: none;
     color: #999;
     font-size: 14px;
     margin-top: 10px;
 }
 
-li a:hover {
+li i:hover {
     color: #333;
 }
 
-a.icon-hyperlink {
+i.icon-hyperlink {
     margin-right: 12px;
 }
 
