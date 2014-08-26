@@ -5,21 +5,21 @@
 ;(function(root, factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
-        define(['underscore', 'backbone'], function(_, Backbone) {
+        define(['underscore', 'backbone', 'util'], function(_, Backbone, util) {
             // Use global variables if the locals is undefined.
-            return factory(_ || root._, Backbone || root.Backbone);
+            return factory(_ || root._, Backbone || root.Backbone, util || root.util);
         });
    } else {
         // RequireJS isn't being used. Assume underscore and backbone is loaded in <script> tags
-        factory(_, Backbone);
+        factory(_, Backbone, util);
    }
-}(this, function(_, Backbone) {
+}(this, function(_, Backbone, util) {
     var TabView = Backbone.View.extend({
         tagName: 'li',
         events: {
             'change input': 'updateTab',
             'click .icon-hyperlink': 'openUrl',
-            'click .icon-trash': 'remove'
+            'click .icon-close': 'remove'
         },
         initialize: function() {
             this.tabTmpl = document.querySelector('#tmpl-tab').innerHTML;
@@ -34,6 +34,7 @@
             // https://github.com/jashkenas/backbone/wiki/Using-Backbone-without-jQuery
             // this.$el.html(_.template(this.tabTmpl, this.model.toJSON()));
             this.el.innerHTML = _.template(this.tabTmpl, this.model.toJSON());
+            // util.insertHTML(this.el, 'afterEnd', _.template(this.tabTmpl, this.model.toJSON()));
             return this;
         },
         openUrl: function(e) {

@@ -25,11 +25,12 @@
         initialize: function() {
             this.appView = new AppView({
                 collection: bgContext.tabCollection,
+                reCollection: bgContext.reCollection,
                 bgController: bgContext.tabController
             });
         },
         home: function() {
-            document.querySelector('#box').classList.remove('hide');
+            document.querySelector('#url-list').classList.remove('hide');
         }
     });
 

@@ -14,19 +14,18 @@
         factory(_, Backbone);
    }
 }(this, function(_, Backbone) {
-    var TabController = function(collection) {
+    var TabController = function(collection, reCollection) {
         this.collection = collection;
+        this.reCollection = reCollection;
 
         this.bind();
 
         return this;
     };
 
-    _.extend(TabController.prototype, Backbone.Events);
-
-    _.extend(TabController.prototype, {
+    _.extend(TabController.prototype, Backbone.Events, {
         createATab: function(tab) {
-            console.log('create', tab)
+            console.log('create', tab.url, this.isIgnore(tab.url))
             if(!this.collection.has(tab) && !this.isIgnore(tab.url)) this.collection.create({url: tab.url, id: tab.id});
         },
 
@@ -43,7 +42,6 @@
         },
 
         closeATab: function(tabId) {
-            console.log('delete', tabId)
             this.collection.removeById(tabId);
         },
 
@@ -59,15 +57,28 @@
         },
 
         isIgnore: function(u) {
-            var ignores = [];
+            // var ignores = [];
 
-            if( !u ||
-                (
-                u.match(/^chrome.*:\/\//) ||
-                u.match(/^http(?:|s):\/\/www\.(google|baidu|yahoo)\.com/) ||
-                u.match(/^file:\/\//)
-                )
-            ) return 'ignored';
+            // if( !u ||
+            //     (
+            //     u.match(/^chrome.*:\/\//) ||
+            //     u.match(/^http(?:|s):\/\/www\.(google|baidu|yahoo)\.com/) ||
+            //     u.match(/^file:\/\//)
+            //     )
+            // ) return 'ignored';
+
+            // return;
+
+            var reArr = this.reCollection.toJSON();
+
+            if(!reArr.length) return;
+
+            reArr = _.map(reArr, function(reModel) {
+                return '(' + reModel.re + ')';
+            });
+            // console.log('---------', reArr)
+
+            if(u.match(new RegExp(reArr.join('|'), 'i'))) return 'ignored';
 
             return;
         },

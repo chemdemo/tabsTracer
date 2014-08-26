@@ -3,24 +3,41 @@
 <head>
     <meta charset="utf-8" />
     <title>tabs tracer</title>
+    <!-- build:css css/main.min.css -->
     <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <!-- endbuild -->
+    <!-- build:js js/jsBridge.min.js -->
     <script src="js/popup/jsBridge.js"></script>
+    <!-- endbuild -->
 </head>
 <body>
-    <div class="box" id="box">
-        <header>Urls list</header>
+    <div class="url-list" id="url-list">
+        <header>Urls list<i title="exclude rules" class="fr icon-list2 show-re" id="show-re"></i></header>
         <section><ul id="urls"></ul></section>
+        <div class="none exclude-list" id="exclude-list">
+            <h3>Exclude rules(Regular expressions)<i class="fr icon-plus add-re" id="add-re" title="add rule"></i></h3>
+            <ul id="excludes"></ul>
+        </div>
     </div>
 
     <script type="text/template" id="tmpl-tab">
         <input value="<%= url %>" />
-        <a href="javascript: void(0);" data-tab-id="<%= id %>" title="delete" class="fr icon-trash"></a>
-        <a href="javascript: void(0);" data-tab-id="<%= id %>" title="open" class="fr icon-hyperlink"></a>
+        <a href="javascript: void(0);" data-tab-id="<%= id %>" title="delete url" class="fr icon-close"></a>
+        <a href="javascript: void(0);" data-tab-id="<%= id %>" title="open url" class="fr icon-hyperlink"></a>
+    </script>
+
+    <script type="text/template" id="tmpl-re">
+        <input value="<%= re %>" />
+        <a href="javascript: void(0);" data-re-id="<%= id %>" title="delete rule" class="icon-close"></a>
     </script>
 </body>
+<!-- build:js js/popup.min.js -->
 <script src="js/lib/backbone.native.js"></script>
+<script src="js/lib/util.js"></script>
 <script src="js/popup/tabView.js"></script>
+<script src="js/popup/reView.js"></script>
 <script src="js/popup/appView.js"></script>
 <script src="js/popup/appRouter.js"></script>
 <script src="js/popup/main.js"></script>
+<!-- endbuild -->
 </html>
