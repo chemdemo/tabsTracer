@@ -13,6 +13,7 @@ var minifyCss = require('gulp-minify-css');
 var concat = require('gulp-concat');
 var replace = require('gulp-replace');
 // var rev = require('gulp-rev');
+var zip = require('gulp-zip');
 var bump = require('gulp-bump');
 var git = require('gulp-git');
 
@@ -36,7 +37,7 @@ gulp.task('usemin', ['clean'], function() {
         .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('compassBackgroundJs', ['clean'], function() {
+gulp.task('compassBackgroundJs', function() {
     var manifest = require('./src/manifest.json');
     var scripts = manifest.background.scripts;
 
@@ -81,26 +82,29 @@ gulp.task('bump', ['replace'], function() {
     );
 });
 
-gulp.task('tag', ['bump'], function() {
+gulp.task('archive', ['bump'], function() {
     delete require.cache[path.resolve('./src/manifest.json')];
     version = 'v' + require('./src/manifest.json').version;
+
+    return gulp.src('./dist/**/*')
+        .pipe(zip(pkg.name + '.' + version + '.zip'))
+        .pipe(gulp.dest('./releases/'));
+});
+
+gulp.task('tag', ['archive'], function() {
     git.tag(version, 'Tag ' + version, function(err) {
         if(err) throw err;
     });
 });
 
-gulp.task('add', ['tag'], function() {
-    return gulp.src(['./package.json', './src/manifest.json'])
-        .pipe(git.add());
+gulp.task('commit', ['tag'], function() {
+    return gulp.src(['./package.json', './src/manifest.json', './releases/'])
+        .pipe(git.add())
+        .pipe(git.commit('Release ' + version));
 });
 
-gulp.task('commit'/*, ['add']*/, function() {
-    return gulp.src('./*')
-        .pipe(git.commit('Release test'));
-});
-
-gulp.task('push'/*, ['commit']*/, function() {
-    git.push('origin', 'master', function (err) {
+gulp.task('push', ['commit'], function() {
+    git.push('origin', 'master', {args: '--tags'}, function (err) {
         if (err) throw err;
     });
 });
@@ -108,7 +112,7 @@ gulp.task('push'/*, ['commit']*/, function() {
 gulp.task('dist', ['clean', 'usemin', 'compassBackgroundJs', 'replace', 'compress']);
 
 gulp.task('release', ['dist'], function() {
-    gulp.start(['bump', 'tag', 'add', 'commit', 'push']);
+    gulp.start(['bump', 'archive', 'tag', 'commit', 'push']);
 });
 
 gulp.task('publish', ['dist', 'release']);
