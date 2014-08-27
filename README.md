@@ -12,7 +12,7 @@ tabsTracer插件，实时地跟踪chrome打开的tab，并记录url，在浏览�
 
 ## 插件截图
 
-[tabsTracer](https://github.com/chemdemo/tabsTracer/blob/master/screenshots.png)
+![tabsTracer](https://github.com/chemdemo/tabsTracer/blob/master/screenshots.png)
 
 ## 技术简介
 
