@@ -99,7 +99,7 @@ gulp.task('commit'/*, ['add']*/, function() {
         .pipe(git.commit('Release test'));
 });
 
-gulp.task('push', ['commit'], function() {
+gulp.task('push'/*, ['commit']*/, function() {
     git.push('origin', 'master', function (err) {
         if (err) throw err;
     });
