@@ -82,6 +82,7 @@ gulp.task('bump', ['replace'], function() {
     );
 });
 
+// upload url: https://chrome.google.com/webstore/developer/update
 gulp.task('archive', ['bump'], function() {
     delete require.cache[path.resolve('./src/manifest.json')];
     version = 'v' + require('./src/manifest.json').version;
