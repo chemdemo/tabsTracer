@@ -1,6 +1,7 @@
 {
   "name": "tabsTracer",
   "version": "1.0.2",
+  "description": "Tracing all links you have opened, and store them in localStorage.",
   "private": true,
   "scripts": {
     "start": ""
