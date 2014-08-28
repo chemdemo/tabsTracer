@@ -2,7 +2,7 @@
     "name": "tabsTracer",
     "version": "1.0.2",
     "manifest_version": 2,
-    "description": "Intelligent tracking opened tabs in chrome.",
+    "description": "Tracing all links you have opened, and store them in localStorage.",
     "browser_action": {
         "default_icon": "img/icon16.png",
         "default_title": "Show tabs saved in localStorage",
