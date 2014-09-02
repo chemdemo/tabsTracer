@@ -12,9 +12,11 @@ tabsTracer插件，实时地跟踪chrome打开的tab，并记录url，在浏览�
 
 ## 插件截图
 
-![tabsTracer](https://github.com/chemdemo/tabsTracer/blob/master/screenshots.png)
+![tabsTracer](https://github.com/chemdemo/tabsTracer/blob/master/screenshots1.png)
 
-## 技术简介
+![tabsTracer](https://github.com/chemdemo/tabsTracer/blob/master/screenshots2.png)
+
+## 技术细节
 
 - 采用Backbone框架开发，Model和Collection运行在background脚本，几个view运行在popup页面。
 
